@@ -11,8 +11,7 @@ jobs:
     strategy:
       matrix:
         leia-tests:
-          - examples/2.4
-          - examples/custom
+          - examples/symfony
         lando-versions:
           - edge
         os:
