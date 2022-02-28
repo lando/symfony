@@ -29,7 +29,7 @@ Note that if the above config options are not enough all Lando recipes can be fu
 
 ## Choosing a php version
 
-You can set `php` to any version that is available in our [php service](https://docs.lando.dev/php.html). However, you should consult the [Symfony requirements](https://symfony.com/doc/current/reference/requirements.html) to make sure that version is actually supported by Symfony itself.
+You can set `php` to any version that is available in our [php service](https://docs.lando.dev/php). However, you should consult the [Symfony requirements](https://symfony.com/doc/current/reference/requirements.html) to make sure that version is actually supported by Symfony itself.
 
 Here is the [recipe config](https://docs.lando.dev/config/recipes.html#config) to set the Symfony recipe to use `php` version `7.3`
 
