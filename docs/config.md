@@ -133,7 +133,7 @@ config:
 
 By default, Symfony comes with a `.env` configuration file. You will want to modify the following `.env` key so that it makes sense for use with Lando.
 
-Here is what that file would look like if you installed symfony [as above](#getting-started). Note that your file might be slightly different depending on your configuration.
+Here is what that file would look like if you installed symfony [as above](https://docs.lando.dev/symfony/getting-started.html). Note that your file might be slightly different depending on your configuration.
 
 ```bash
 # In all environments, the following files are loaded if they exist,
@@ -204,7 +204,7 @@ You can get also get the above information, and more, by using the [`lando info`
 
 ## Using custom config files
 
-You may need to override our [default Symfony config](https://github.com/lando/lando/tree/master/plugins/lando-recipes/recipes/symfony) with your own.
+You may need to override our [default Symfony config](https://github.com/lando/symfony/tree/main/recipes/symfony) with your own.
 
 If you do this you must use files that exists inside your applicaton and express them relative to your project root as below.
 
