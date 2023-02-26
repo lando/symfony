@@ -1,4 +1,4 @@
-## v0.8.0 - [February 24, 2022](https://github.com/lando/symfony/releases/tag/v0.8.0)
+## v0.8.0 - [February 26, 2022](https://github.com/lando/symfony/releases/tag/v0.8.0)
 
 * Add compatibility for MySQL 8.x [lando/lando#1426](https://github.com/lando/lando/issues/1462)
 
