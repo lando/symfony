@@ -25,7 +25,7 @@ rm -rf tmp && lando composer create-project symfony/website-skeleton tmp && cp -
 
 # Should start up successfully
 cd symfony
-echo -e "\nplugins:\n  \"@lando/symfony/\": ./../../" >> .lando.yml
+cp ../.lando.local.yml .
 lando start
 ```
 
