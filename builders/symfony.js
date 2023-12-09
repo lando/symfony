@@ -137,6 +137,33 @@ const getDbTooling = database => {
  }
 };
 
+// Default DB cli commands
+const mysqlCli = {
+  service: ':host',
+  description: 'Drops into a MySQL shell on a database service',
+  cmd: 'mysql -uroot',
+  options: {
+    host: {
+      description: 'The database service to use',
+      default: 'database',
+      alias: ['h'],
+    },
+  },
+};
+const postgresCli = {
+  service: ':host',
+  description: 'Drops into a psql shell on a database service',
+  cmd: 'psql -Upostgres',
+  user: 'root',
+  options: {
+    host: {
+      description: 'The database service to use',
+      default: 'database',
+      alias: ['h'],
+    },
+  },
+};
+
 /*
 * Helper to get config defaults
 */
