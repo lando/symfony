@@ -31,17 +31,20 @@ jobs:
           cache: npm
       - name: Install NPM dependencies
         run: npm clean-install --prefer-offline --frozen-lockfile
+      - name: Bundle Deps
+        uses: lando/prepare-release-action@v3
+        with:
+          lando-plugin: true
+          version: dev
+          sync: false
       - name: Setup lando ${{ matrix.lando-version }}
         uses: lando/setup-lando@v2
         with:
           lando-version: ${{ matrix.lando-version }}
           config: |
-            plugins.@lando/symfony=/home/runner/work/symfony/symfony
+            setup.skipCommonPlugins=true
+            setup.plugins.@lando/symfony=/home/runner/work/symfony/symfony
           telemetry: false
-      - name: Verify Lando works and we are dogfooding this plugin for tests
-        run: |
-          lando version
-          lando config --path plugins | grep symfony | grep /home/runner/work/symfony/symfony || (echo "::error:: Not dogfooding this plugin correctly!" && exit 1)
       - name: Run Leia Tests
         uses: lando/run-leia-action@v2
         with:

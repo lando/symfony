@@ -56,7 +56,7 @@ mkdir -p ~/.lando/plugins
 # Install plugin
 # NOTE: Modify the "npm install @lando/symfony" line to install a particular version eg
 # npm install @lando/symfony@0.5.2
-docker run --rm -it -v ${HOME}/.lando/plugins:/plugins -w /tmp node:14-alpine sh -c \
+docker run --rm -it -v ${HOME}/.lando/plugins:/plugins -w /tmp node:18-alpine sh -c \
   "npm init -y \
   && npm install @lando/symfony --production --flat --no-default-rc --no-lockfile --link-duplicates \
   && npm install --production --cwd /tmp/node_modules/@lando/symfony \
