@@ -116,6 +116,7 @@ const toolingDefaults = {
   },
 };
 
+/*
 * Helper to get the phar build command
 */
 const getDbTooling = database => {
@@ -199,7 +200,7 @@ module.exports = {
         cmd: `php /app/${options.webroot}/../bin/console`,
       };
       if (_.has(options, 'cache')) options.services.cache = getCache(options.cache);
-      
+
       // Rebase on top of any default config we might already have
       options.defaultFiles = _.merge({}, getConfigDefaults(_.cloneDeep(options)), options.defaultFiles);
       options.services = _.merge({}, getServices(options), options.services);
@@ -211,7 +212,7 @@ module.exports = {
       }
       options.proxy = _.set(options.proxy, options.proxyService, [`${options.app}.${options._app._config.domain}`]);
 
-      
+
       // Send downstream
       super(id, options);
     };
