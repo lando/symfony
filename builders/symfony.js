@@ -2,6 +2,8 @@
 
 // Modules
 const _ = require('lodash');
+const fs = require('fs');
+const path = require('path');
 
 /*
  * Helper to get cache
