@@ -9,17 +9,18 @@ const path = require('path');
  * Helper to get cache
  */
 const getCache = cache => {
+  const version = _.includes(cache, ':') ? _.last(cache.split(':')) : '';
   // Return redis
   if (_.includes(cache, 'redis')) {
     return {
-      type: cache,
+      type: `symfony-redis:${version}`,
       portforward: true,
       persist: true,
     };
   // Or memcached
   } else if (_.includes(cache, 'memcached')) {
     return {
-      type: cache,
+      type: `symfony-memcached:${version}`,
       portforward: true,
     };
   }
