@@ -205,7 +205,7 @@ module.exports = {
   name: 'symfony',
   parent: '_recipe',
   config: {
-    confSrc: __dirname,
+    confSrc: path.resolve(__dirname, '..', 'config'),
     config: {},
     composer: {},
     database: 'mysql',
