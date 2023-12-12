@@ -1,0 +1,6 @@
+name: symfony-defaults
+recipe: symfony
+
+# do not remove this
+plugins:
+  "@lando/symfony": ../..

@@ -12,7 +12,13 @@ jobs:
       fail-fast: false
       matrix:
         leia-test:
-          - examples/symfony
+          - examples/symfony-custom
+          - examples/symfony-defaults
+          - examples/symfony-export
+          - examples/symfony-import
+          - examples/symfony-init
+          - examples/symfony-mysql8
+          - examples/symfony-nginx
         lando-version:
           - 3-dev-slim
         os:
