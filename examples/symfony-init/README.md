@@ -1,4 +1,4 @@
-Symfony Example
+Symfony Init Example
 ===============
 
 This example exists primarily to test the following documentation:
@@ -20,12 +20,12 @@ lando init --source cwd --recipe symfony --webroot /app/public --name lando-symf
 
 # Should compose create-project a new symfony app
 cd symfony
+cp ../.lando.local.yml .
 lando ssh -s appserver -c "/helpers/install-composer.sh 2"
-rm -rf tmp && lando composer create-project symfony/website-skeleton tmp && cp -r tmp/. .
+rm -rf tmp && lando composer create-project symfony/skeleton tmp && cp -r tmp/. .
 
 # Should start up successfully
 cd symfony
-cp ../.lando.local.yml .
 lando start
 ```
 
@@ -35,9 +35,9 @@ Verification commands
 Run the following commands to validate things are rolling as they should.
 
 ```bash
-# Should use 7.4 as the default php version
+# Should use 8.2 as the default php version
 cd symfony
-lando php -v | grep "PHP 7.4"
+lando php -v | grep "PHP 8.2"
 
 # Should be running apache 2.4 by default
 cd symfony

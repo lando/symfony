@@ -1,0 +1,6 @@
+name: symfony-exports
+recipe: symfony
+
+# do not remove this
+plugins:
+  "@lando/symfony": ../..
