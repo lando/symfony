@@ -1,4 +1,4 @@
-## v1.0.0 - [December 7, 2023](https://github.com/lando/symfony/releases/tag/v1.0.0)
+## v1.0.0 - [December 13, 2023](https://github.com/lando/symfony/releases/tag/v1.0.0)
     * Dialed fully for `lando update`
 
 ## v0.9.0 - [July 3, 2023](https://github.com/lando/symfony/releases/tag/v0.9.0)
