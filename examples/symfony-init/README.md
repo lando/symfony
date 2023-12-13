@@ -35,9 +35,9 @@ Verification commands
 Run the following commands to validate things are rolling as they should.
 
 ```bash
-# Should use 7.4 as the default php version
+# Should use 8.2 as the default php version
 cd symfony
-lando php -v | grep "PHP 7.4"
+lando php -v | grep "PHP 8.2"
 
 # Should be running apache 2.4 by default
 cd symfony

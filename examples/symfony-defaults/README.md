@@ -31,8 +31,8 @@ lando php -v | grep "PHP 8.2"
 lando ssh -s appserver -c "apachectl -V | grep 2.4"
 lando ssh -s appserver -c "curl -IL localhost" | grep Server | grep 2.4
 
-# Should be running mariadb 10.6 by default
-lando mysql -V | grep 10.6 | grep MariaDB
+# Should be running mysql 5.7 by default
+lando mysql -V | grep 5.7 | grep MariaDB
 
 # Should not enable xdebug by default
 lando php -m | grep xdebug || echo $? | grep 1
