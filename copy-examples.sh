@@ -13,3 +13,5 @@ find examples -type f -exec sh -c 'tmpfile=$(mktemp); sed "s/backdrop/$1/g" "$0"
 find examples -type f -exec sh -c 'tmpfile=$(mktemp); sed "s/Backdrop/$1/g" "$0" > "$tmpfile" && mv "$tmpfile" "$0"' {} $plugin_uppercase \;
 mv examples/$plugin examples/$plugin-init
 
+rm builders/$plugin-apache.js
+
