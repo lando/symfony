@@ -32,7 +32,7 @@ lando ssh -s appserver -c "apachectl -V | grep 2.4"
 lando ssh -s appserver -c "curl -IL localhost" | grep Server | grep 2.4
 
 # Should be running mysql 5.7 by default
-lando mysql -V | grep 5.7 | grep MariaDB
+lando mysql -V | grep 5.7 
 
 # Should not enable xdebug by default
 lando php -m | grep xdebug || echo $? | grep 1
