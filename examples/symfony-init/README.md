@@ -1,8 +1,9 @@
-# Symfony Init Example
+Symfony Init Example
+===============
 
 This example exists primarily to test the following documentation:
 
-* [Symfony Recipe](https://docs.lando.dev/symfony/getting-started.html)
+* [Symfony Recipe](https://docs.devwithlando.io/tutorials/symfony.html)
 
 Start up tests
 --------------
@@ -13,13 +14,18 @@ Run the following commands to get up and running with this example.
 # Should poweroff
 lando poweroff
 
-# Should clone Symfony code and init a symfony recipe landofile
+# Initialize an empty Symfony recipe
 rm -rf symfony && mkdir -p symfony && cd symfony
-lando init --source remote --remote-url https://github.com/symfony/symfony/releases/download/1.26.2/symfony.zip --recipe symfony --webroot symfony --name symfony
-cp -f ../../.lando.upstream.yml .lando.upstream.yml && cat .lando.upstream.yml
+lando init --source cwd --recipe symfony --webroot /app/public --name lando-symfony --option cache=redis
+
+# Should compose create-project a new symfony app
+cd symfony
+lando ssh -s appserver -c "/helpers/install-composer.sh 2"
+rm -rf tmp && lando composer create-project symfony/website-skeleton tmp && cp -r tmp/. .
 
 # Should start up successfully
 cd symfony
+cp ../.lando.local.yml .
 lando start
 ```
 
@@ -29,40 +35,34 @@ Verification commands
 Run the following commands to validate things are rolling as they should.
 
 ```bash
-# Should return the Symfony installation page by default
+# Should use 7.4 as the default php version
 cd symfony
-lando ssh -s appserver -c "curl -L localhost" | grep "Symfony CMS 1"
-
-# Should use 8.2 as the default php version
-cd symfony
-lando php -v | grep "PHP 8.2"
+lando php -v | grep "PHP 7.4"
 
 # Should be running apache 2.4 by default
 cd symfony
 lando ssh -s appserver -c "apachectl -V | grep 2.4"
 lando ssh -s appserver -c "curl -IL localhost" | grep Server | grep 2.4
 
-# Should be running mariadb 10.6 by default
+# Should be running mysql 5.7 by default
 cd symfony
-lando mysql -V | grep 10.6 | grep MariaDB
+lando mysql -V | grep 5.7
 
 # Should not enable xdebug by default
 cd symfony
 lando php -m | grep xdebug || echo $? | grep 1
 
-# Should be able to connect to the database with the default creds
+# Should have redis running
 cd symfony
-lando mysql symfony -e quit
+lando ssh -s cache -c "redis-cli CONFIG GET databases"
 
-# Should use bee 1.x-1.x by default
-cd symfony/symfony
-lando bee version | grep "Bee for Symfony CMS" | grep "1.x-1.x"
+# Should use the default database connection info
+cd symfony
+lando mysql -usymfony -psymfony symfony -e quit
 
-# Should be able to install Symfony with bee and verify it installed
-cd symfony/symfony
-chmod +x core/scripts/*
-lando bee site-install --db-name=symfony --db-user=symfony --db-pass=symfony --db-host=database --username=admin --password=a --email=mike@lando.dev --site-name="Vibes Rising" --auto
-lando bee status | grep "Site name" | grep "Vibes Rising"
+# Should have console available
+cd symfony
+lando composer list
 ```
 
 Destroy tests

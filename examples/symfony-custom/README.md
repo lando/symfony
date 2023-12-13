@@ -43,9 +43,6 @@ lando mysql symfony -e quit
 # Should have xdebug enabled
 lando php -m | grep Xdebug
 
-# Should have bee 1.x-1.x
-lando bee version | grep "Bee for Symfony CMS" | grep "1.x-1.x"
-
 # Should be using custom config files
 lando ssh -s appserver -c "curl -L appserver_nginx/info.php" | grep memory_limit | grep 513M
 lando ssh -s appserver_nginx -c "cat /opt/bitnami/nginx/conf/vhosts/lando.conf" | grep server_name | grep pirog
