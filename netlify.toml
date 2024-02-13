@@ -39,9 +39,9 @@
 # We need this so preview environments and the base site look ok on their own
 [[redirects]]
   from = "/"
-  to = "/symfony"
+  to = "/plugins/symfony"
   status = 200
 [[redirects]]
-  from = "/symfony/*"
+  from = "/plugins/symfony/*"
   to = "/:splat"
   status = 200
