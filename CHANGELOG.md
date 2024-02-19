@@ -1,3 +1,7 @@
+## v1.1.0 - [February 19, 2024](https://github.com/lando/symfony/releases/tag/v1.1.0)
+
+* Fixed issue with @lando/memcached path being in an unexpected location. [#38](https://github.com/lando/symfony/issues/38)
+
 ## v1.0.0 - [December 13, 2023](https://github.com/lando/symfony/releases/tag/v1.0.0)
 
 * Dialed fully for `lando update`
