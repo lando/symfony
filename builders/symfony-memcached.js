@@ -1,7 +1,7 @@
 'use strict';
 
 const _ = require('lodash');
-const LandoMemcached = require('@lando/memcached/builders/memcached.js');
+const LandoMemcached = require('@lando/memcached/services/memcached/builder.js');
 
 // Builder
 module.exports = {
