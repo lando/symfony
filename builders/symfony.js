@@ -6,8 +6,8 @@ const fs = require('fs');
 const path = require('path');
 
 /*
- * Helper to get cache
- */
+* Helper to get cache
+*/
 const getCache = cache => {
   const version = _.includes(cache, ':') ? _.last(cache.split(':')) : false;
   // Return redis
@@ -17,7 +17,7 @@ const getCache = cache => {
       portforward: true,
       persist: true,
     };
-  // Or memcached
+    // Or memcached
   } else if (_.includes(cache, 'memcached')) {
     return {
       type: version ? `symfony-memcached:${version}` : 'symfony-memcached',
@@ -27,8 +27,8 @@ const getCache = cache => {
 };
 
 /*
- * Helper to get services
- */
+* Helper to get services
+*/
 const getServices = options => ({
   appserver: {
     build_as_root_internal: options.build_root,
@@ -58,8 +58,8 @@ const getServices = options => ({
 });
 
 /*
- * Helper to get service config
- */
+* Helper to get service config
+*/
 const getServiceConfig = (options, types = ['php', 'server', 'vhosts']) => {
   const config = {};
   _.forEach(types, type => {
@@ -123,19 +123,19 @@ const toolingDefaults = {
 * Helper to get the phar build command
 */
 const getDbTooling = database => {
- // Make sure we strip out any version number
- database = database.split(':')[0];
- // Choose wisely
- if (_.includes(['mysql', 'mariadb'], database)) {
-   return {mysql: mysqlCli};
- } else if (database === 'postgres') {
-   return {psql: postgresCli};
- } else if (database === 'mongo') {
-   return {mongo: {
-     service: 'database',
-     description: 'Drop into the mongo shell',
-   }};
- }
+  // Make sure we strip out any version number
+  database = database.split(':')[0];
+  // Choose wisely
+  if (_.includes(['mysql', 'mariadb'], database)) {
+    return {mysql: mysqlCli};
+  } else if (database === 'postgres') {
+    return {psql: postgresCli};
+  } else if (database === 'mongo') {
+    return {mongo: {
+      service: 'database',
+      description: 'Drop into the mongo shell',
+    }};
+  }
 };
 
 // Default DB cli commands
@@ -169,27 +169,27 @@ const postgresCli = {
 * Helper to get config defaults
 */
 const getConfigDefaults = options => {
- // Get the viaconf
- if (_.startsWith(options.via, 'nginx')) options.defaultFiles.vhosts = 'default.conf.tpl';
+  // Get the viaconf
+  if (_.startsWith(options.via, 'nginx')) options.defaultFiles.vhosts = 'default.conf.tpl';
 
- // Get the default db conf
- const dbConfig = _.get(options, 'database', 'mysql');
- const database = _.first(dbConfig.split(':'));
- const version = _.last(dbConfig.split(':')).substring(0, 2);
- if (database === 'mysql' || database === 'mariadb') {
-   if (version === '8.') {
-     options.defaultFiles.database = 'mysql8.cnf';
-   } else {
-     options.defaultFiles.database = 'mysql.cnf';
-   }
- }
+  // Get the default db conf
+  const dbConfig = _.get(options, 'database', 'mysql');
+  const database = _.first(dbConfig.split(':'));
+  const version = _.last(dbConfig.split(':')).substring(0, 2);
+  if (database === 'mysql' || database === 'mariadb') {
+    if (version === '8.') {
+      options.defaultFiles.database = 'mysql8.cnf';
+    } else {
+      options.defaultFiles.database = 'mysql.cnf';
+    }
+  }
 
- // Verify files exist and remove if it doesn't
- _.forEach(options.defaultFiles, (file, type) => {
-   if (!fs.existsSync(`${options.confDest}/${file}`)) {
-     delete options.defaultFiles[type];
-   }
- });
+  // Verify files exist and remove if it doesn't
+  _.forEach(options.defaultFiles, (file, type) => {
+    if (!fs.existsSync(`${options.confDest}/${file}`)) {
+      delete options.defaultFiles[type];
+    }
+  });
 };
 
 /*
@@ -199,8 +199,8 @@ const getTooling = options => _.merge({}, toolingDefaults, getDbTooling(options.
 
 
 /*
- * Build Symfony
- */
+* Build Symfony
+*/
 module.exports = {
   name: 'symfony',
   parent: '_recipe',
@@ -242,7 +242,6 @@ module.exports = {
         else if (_.startsWith(options.via, 'apache')) options.proxyService = 'appserver';
       }
       options.proxy = _.set(options.proxy, options.proxyService, [`${options.app}.${options._app._config.domain}`]);
-
 
       // Send downstream
       super(id, options);
