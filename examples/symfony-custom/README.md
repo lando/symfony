@@ -37,6 +37,9 @@ lando ssh -s appserver -c "/bin/sh -c 'NO_COLOR=1 composer -V'" | grep "Composer
 # Should be running mysql 5.7
 lando mysql -V | grep "mysql" | grep "Distrib 5.7."
 
+# Should be running memcached 1.5
+lando ssh -s cache -c "memcached --version | grep 1.5.12"
+
 # Should be able to connect to the database with the default creds
 lando mysql symfony -e quit
 

@@ -1,3 +1,9 @@
+## v1.3.0 - [February 21, 2024](https://github.com/lando/symfony/releases/tag/v1.3.0)
+
+* Updated memcached plugin to [v1.1.0](https://github.com/lando/memcached/releases/tag/v1.1.0).
+* Added testing of memcached.
+* Fixed issue with proxy URLs not showing up.
+
 ## v1.2.0 - [February 19, 2024](https://github.com/lando/symfony/releases/tag/v1.2.0)
 
 * Included ability to specify `database: mssql` in the `config` section to maintain backwards compatibility. [@lando/mssql#31](https://github.com/lando/mssql/issues/31)
