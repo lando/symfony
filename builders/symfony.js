@@ -221,6 +221,7 @@ module.exports = {
     via: 'apache',
     webroot: '.',
     xdebug: false,
+    proxy: {},
   },
   builder: (parent, config) => class LandoSymfony extends parent {
     constructor(id, options = {}) {
