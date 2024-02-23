@@ -190,6 +190,8 @@ const getConfigDefaults = options => {
       delete options.defaultFiles[type];
     }
   });
+
+  return options.defaultFiles;
 };
 
 /*
