@@ -1,3 +1,9 @@
+## v1.4.0 - [February 22, 2024](https://github.com/lando/symfony/releases/tag/v1.4.0)
+
+### Fixes
+
+* Fixed `CRITICAL` issue with default config files not loading correctly.
+
 ## v1.3.0 - [February 21, 2024](https://github.com/lando/symfony/releases/tag/v1.3.0)
 
 * Updated memcached plugin to [v1.1.0](https://github.com/lando/memcached/releases/tag/v1.1.0).

@@ -36,6 +36,10 @@ lando mysql -V | grep "mysql"| grep "Ver 8.0.22"
 
 # Should be able to connect to the database with the default creds
 lando mysql symfony -e quit
+
+# Should use the defauly mysql8 config file
+lando ssh -s database -c "cat /opt/bitnami/mysql/conf/my_custom.cnf" | grep "LANDOSYMFONYMYSQL8CNF"
+lando mysql -u root -e "show variables;" | grep innodb_lock_wait_timeout | grep 127
 ```
 
 Destroy tests
