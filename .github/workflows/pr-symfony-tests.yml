@@ -14,6 +14,8 @@ jobs:
         leia-test:
           - examples/symfony-custom
           - examples/symfony-defaults
+          - examples/symfony-downstreamer-1
+          - examples/symfony-downstreamer-2
           - examples/symfony-export
           - examples/symfony-import
           - examples/symfony-init
