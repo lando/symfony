@@ -1,6 +1,6 @@
 ---
 title: Configuration
-description: Learn how to configure the Lando Laravel recipe.
+description: Learn how to configure the Lando Symfony recipe.
 ---
 
 # Configuration

@@ -1,6 +1,6 @@
 ---
 title: Tooling
-description: Learn about Lando Laravel tooling commands like composer, php, drush, etc
+description: Learn about Lando Symfony tooling commands like composer, php, console, etc
 ---
 
 # Tooling
