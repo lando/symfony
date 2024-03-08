@@ -1,3 +1,6 @@
+## v1.5.0 - [March 8, 2024](https://github.com/lando/symfony/releases/tag/v1.5.0)
+  * Updated to latest database services.
+
 ## v1.4.1 - [March 4, 2024](https://github.com/lando/symfony/releases/tag/v1.4.1)
 
 ### Fixes
