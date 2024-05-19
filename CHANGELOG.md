@@ -1,11 +1,17 @@
+## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
+
+* Updated mariadb plugin [#51](https://github.com/lando/mariadb/issues/51)
+* Cleaned up test comments
+
 ## v1.5.0 - [March 8, 2024](https://github.com/lando/symfony/releases/tag/v1.5.0)
-  * Updated to latest database services.
+
+* Updated to latest database services.
 
 ## v1.4.1 - [March 4, 2024](https://github.com/lando/symfony/releases/tag/v1.4.1)
 
 ### Fixes
 
-* Improved `database` selection for purposes of `config` loading, fixes some `database` bootup issues when the `database` type is overriden downstream
+* Improved `database` selection for purposes of `config` loading, fixes some `database` bootup issues when the `database` type is overridden downstream
 
 ## v1.4.0 - [February 22, 2024](https://github.com/lando/symfony/releases/tag/v1.4.0)
 

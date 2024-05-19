@@ -1,4 +1,4 @@
-# Symfony MySQL 8 Example
+# Symfony MariaDB Example
 
 This example exists primarily to test the following documentation:
 
@@ -22,24 +22,24 @@ Run the following commands to validate things are rolling as they should.
 
 ```bash
 # Should serve from web folder
-lando ssh -s appserver -c "curl -L localhost" | grep "MYSQL8"
+lando ssh -s appserver -c "curl -L localhost" | grep "MariaDB"
 
 # Should be running apache 2.4 by default
 lando ssh -s appserver -c "apachectl -V | grep 2.4"
 lando ssh -s appserver -c "curl -IL localhost" | grep Server | grep 2.4
 
-# Should use php 5.6 if specified by user
-lando php -v | grep "PHP 5.6"
+# Should use php 8.3 if specified by user
+lando php -v | grep "PHP 8.3."
 
-# Should be running mysql8 if specified by user
-lando mysql -V | grep "mysql"| grep "Ver 8.0.22"
+# Should be running mariadb 11.3.x if specified by user
+lando mariadb -V | grep "mariadb" | grep "11.3."
 
 # Should be able to connect to the database with the default creds
-lando mysql symfony -e quit
+lando mariadb symfony -e quit
 
-# Should use the default mysql8 config file
-lando ssh -s database -c "cat /opt/bitnami/mysql/conf/my_custom.cnf" | grep "LANDOSYMFONYMYSQL8CNF"
-lando mysql -u root -e "show variables;" | grep innodb_lock_wait_timeout | grep 127
+# Should use the default mariadb config file
+lando ssh -s database -c "cat /opt/bitnami/mariadb/conf/my_custom.cnf" | grep "innodb_lock_wait_timeout = 121"
+lando mariadb -u root -e "show variables;" | grep innodb_lock_wait_timeout | grep 121
 ```
 
 Destroy tests
