@@ -133,15 +133,19 @@ const toolingDefaults = {
 */
 const getDbTooling = database => {
   // Make sure we strip out any version number
-  database = database.split(':')[0];
+  const db = database.split(':')[0];
+  const ver = database.split(':')[1];
   // Choose wisely
-  if (database === 'mysql') {
+  if (db === 'mysql') {
     return {mysql: mysqlCli};
-  } else if (database === 'mariadb') {
+  } else if (db === 'mariadb' && ver < 10.4) {
+    // mariadb command not available in 10.3.x and below
+    return {mysql: mysqlCli};
+  } else if (db === 'mariadb') {
     return {mariadb: mariadbCli};
-  } else if (database === 'postgres') {
+  } else if (db === 'postgres') {
     return {psql: postgresCli};
-  } else if (database === 'mongo') {
+  } else if (db === 'mongo') {
     return {mongo: {
       service: 'database',
       description: 'Drop into the mongo shell',
@@ -224,7 +228,6 @@ const getConfigDefaults = options => {
 * Helper to get tooling
 */
 const getTooling = options => _.merge({}, toolingDefaults, getDbTooling(options.database));
-
 
 /*
 * Build Symfony

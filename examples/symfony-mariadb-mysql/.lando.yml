@@ -1,0 +1,10 @@
+name: symfony-mariadb-mysql
+recipe: symfony
+config:
+  webroot: web
+  php: 8.3
+  database: mariadb:10.3
+
+# do not remove this
+plugins:
+  "@lando/symfony": ../..

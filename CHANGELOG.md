@@ -1,7 +1,6 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
-* Updated mariadb plugin [#51](https://github.com/lando/mariadb/issues/51)
-* Cleaned up test comments
+* Use mysql command for MariaDB 10.3.x and below [#52](https://github.com/lando/symfony/issues/52)
 
 ## v1.5.0 - [March 8, 2024](https://github.com/lando/symfony/releases/tag/v1.5.0)
 
