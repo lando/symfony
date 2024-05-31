@@ -20,6 +20,7 @@ jobs:
           - examples/symfony-import
           - examples/symfony-init
           - examples/symfony-mariadb
+          - examples/symfony-mariadb-mysql
           - examples/symfony-mysql8
           - examples/symfony-nginx
         lando-version:
