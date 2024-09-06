@@ -1,4 +1,7 @@
 name: symfony-custom
+proxy:
+  appserver_nginx:
+    - another.symfony-custom.lndo.site
 recipe: symfony
 config:
   php: '8.3'
