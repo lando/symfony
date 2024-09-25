@@ -1,5 +1,7 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+  - Updated lando/mysql to v1.3.0.
+
 ## v1.6.1 - [September 6, 2024](https://github.com/lando/symfony/releases/tag/v1.6.1)
 
 ## Bug Fixes
