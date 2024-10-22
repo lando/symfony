@@ -1,5 +1,7 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+  * Removed unnecessary dependency lando/nginx.
+
 ## v1.7.0 - [October 18, 2024](https://github.com/lando/symfony/releases/tag/v1.7.0)
 
 * Updated lando/php to v1.5.0..
