@@ -1,7 +1,7 @@
 {
   "name": "@lando/symfony",
   "description": "A Lando plugin that provides a tight integration with Symfony.",
-  "version": "1.8.1",
+  "version": "1.8.2",
   "author": "Mike Pirog @pirog",
   "license": "GPL-3.0",
   "repository": "lando/symfony",
