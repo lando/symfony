@@ -8,7 +8,7 @@ next: ./getting-started.html
 
 Symfony is a PHP framework for web projects.
 
-Lando offers a configurable [recipe](https://docs.lando.dev/core/v3/recipes.html) for developing [Symfony](https://symfony.com/) apps.
+Lando offers a configurable [recipe](https://docs.lando.dev/landofile/recipes.html) for developing [Symfony](https://symfony.com/) apps.
 
 #### Features of this plugin:
 
