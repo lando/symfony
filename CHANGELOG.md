@@ -1,5 +1,7 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+## v1.9.0 - [December 9, 2024](https://github.com/lando/symfony/releases/tag/v1.9.0)
+
 * Optimized for `midcore`
 * Removed unneeded dep `@lando/apache`
 * Updated to [@lando/mariadb@1.6.3](https://github.com/lando/mariadb/releases/tag/v1.6.3).
