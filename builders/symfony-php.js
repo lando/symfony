@@ -22,11 +22,11 @@ const loadScripts = options => {
 module.exports = {
   name: 'symfony-php',
   parent: '_appserver',
-  builder: (parent, config) => class SymfonyPhp extends LandoPhp.builder(parent, LandoPhp.config) {
+  builder: parent => class SymfonyPhp extends LandoPhp.builder(parent, LandoPhp.config) {
     constructor(id, options = {}, factory) {
       loadScripts(options);
       options.nginxServiceType = 'symfony-nginx';
       super(id, options, factory);
-    };
+    }
   },
 };

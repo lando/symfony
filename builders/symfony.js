@@ -251,12 +251,11 @@ module.exports = {
     confSrc: path.resolve(__dirname, '..', 'config'),
     config: {},
     composer: {},
-    database: 'mysql',
+    database: 'mysql:5.7',
     defaultFiles: {
       php: 'php.ini',
     },
     php: '8.2',
-    database: 'mysql:5.7',
     services: {appserver: {overrides: {environment: {
       APP_LOG: 'errorlog',
     }}}},
@@ -291,6 +290,6 @@ module.exports = {
 
       // Send downstream
       super(id, options);
-    };
+    }
   },
 };

@@ -7,9 +7,9 @@ const LandoRedis = require('@lando/redis/builders/redis.js');
 module.exports = {
   name: 'symfony-redis',
   parent: '_service',
-  builder: (parent, config) => class SymfonyRedis extends LandoRedis.builder(parent, LandoRedis.config) {
+  builder: parent => class SymfonyRedis extends LandoRedis.builder(parent, LandoRedis.config) {
     constructor(id, options = {}) {
       super(id, options, {services: _.set({}, options.name)});
-    };
+    }
   },
 };
