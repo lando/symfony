@@ -22,6 +22,9 @@ Run the following commands to validate things are rolling as they should.
 # Should be using mysql8
 lando mysql -V | grep 8.0
 
+# Should report symfony requirements are met
+lando symfony check:requirements
+
 # Should use the default database connection info
 lando mysql -usymfony -psymfony symfony -e quit
 

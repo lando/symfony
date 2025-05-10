@@ -31,7 +31,11 @@ const getCache = cache => {
 */
 const getServices = options => ({
   appserver: {
-    build_as_root_internal: options.build_root,
+    build_as_root_internal: [
+      'curl -sS https://get.symfony.com/cli/installer | bash',
+      'mv /root/.symfony5/bin/symfony /usr/local/bin/symfony',
+      ...(options.build_root || []),
+    ],
     build_internal: options.build,
     composer: options.composer,
     composer_version: options.composer_version,
@@ -137,6 +141,11 @@ const toolingDefaults = {
   'php': {
     service: 'appserver',
     cmd: 'php',
+  },
+  'symfony': {
+    service: 'appserver',
+    cmd: 'symfony',
+    description: 'Runs Symfony CLI commands',
   },
 };
 
@@ -271,7 +280,7 @@ module.exports = {
       // Add in console tooling
       options.tooling.console = {
         service: 'appserver',
-        cmd: `php /app/${options.webroot}/../bin/console`,
+        cmd: `php ${options.webroot}/../bin/console`,
       };
 
       if (_.has(options, 'cache')) options.services.cache = getCache(options.cache);

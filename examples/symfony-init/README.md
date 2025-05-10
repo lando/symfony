@@ -22,10 +22,10 @@ cd symfony
 cp ../../.lando.upstream.yml .
 lando start
 
-# Should compose create-project a new symfony app
+# Should create a new symfony demo app
 cd symfony
-lando exec appserver -- /helpers/install-composer.sh 2
-rm -rf tmp && lando composer create-project symfony/skeleton tmp && cp -r tmp/. .
+rm -rf tmp
+lando symfony new tmp --demo --no-git && cp -r tmp/. .
 ```
 
 ## Verification commands
@@ -39,12 +39,16 @@ lando php -v | grep "PHP 8.2"
 
 # Should be running apache 2.4 by default
 cd symfony
-lando exec appserver -- apachectl -V | grep 2.4
-lando exec appserver -- curl -IL localhost | grep Server | grep 2.4
+lando exec appserver -- apachectl -V | grep '2.4'
+lando exec appserver -- curl -IL localhost | grep Server | grep '2.4'
 
 # Should be running mysql 5.7 by default
 cd symfony
-lando mysql -V | grep 5.7
+lando mysql -V | grep '5.7'
+
+# Should report symfony requirements are met
+cd symfony
+lando symfony check:requirements
 
 # Should not enable xdebug by default
 cd symfony
@@ -60,7 +64,7 @@ lando mysql -usymfony -psymfony symfony -e quit
 
 # Should have console available
 cd symfony
-lando composer list
+lando console list
 ```
 
 ## Destroy tests

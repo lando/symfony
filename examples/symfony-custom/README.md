@@ -44,6 +44,9 @@ lando mysql symfony -e quit
 # Should have xdebug enabled
 lando php -m | grep Xdebug
 
+# Should report symfony requirements are met
+lando symfony check:requirements
+
 # Should have proxy urls present in lando info
 lando info | grep "http://symfony-custom.lndo.site"
 lando info | grep "http://another.symfony-custom.lndo.site"

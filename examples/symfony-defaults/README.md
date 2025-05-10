@@ -41,6 +41,9 @@ lando mysql symfony -e quit
 # Should use composer 2 by default
 lando exec appserver -- /bin/sh -c 'NO_COLOR=1 composer -V' | grep "Composer version 2."
 
+# Should report symfony requirements are met
+lando symfony check:requirements
+
 # Should use the correct default config files
 lando exec appserver -- cat /usr/local/etc/php/conf.d/zzz-lando-my-custom.ini | grep "; LANDOSYMFONYPHPINI"
 lando exec appserver -- curl -L http://localhost/info.php | grep max_execution_time | grep 91

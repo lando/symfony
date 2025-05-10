@@ -24,20 +24,20 @@ lando init \
   --webroot public \
   --name my-first-symfony-app
 
-# Install symfony
-lando composer create-project symfony/website-skeleton tmp && cp -r tmp/. . && rm -rf tmp
-
-# Install other Symfony dependencies you may like
-lando composer require annotations asset doctrine encore form logger maker profiler security security-guard stof/doctrine-extensions-bundle twig validator var-dumper
-
 # Start it up
 lando start
+
+# Install symfony using the latest stable version for a web application
+lando symfony new tmp --webapp --no-git && cp -r tmp/. . && rm -rf tmp
+
+# (Optional) Install other Symfony dependencies you may like, e.g.:
+# lando composer require encore maker stof/doctrine-extensions-bundle
 
 # List information about this app.
 lando info
 
-# Run bin/console commands with: lando console
-# Here is how to clear cache;
+# Run your application's bin/console commands with: lando console
+# Here is how to clear cache:
 lando console cache:clear
 ```
 

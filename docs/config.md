@@ -12,7 +12,7 @@ Here are the configuration options, set to the default values, for this recipe. 
 ```yaml
 recipe: symfony
 config:
-  php: '7.4'
+  php: '8.2'
   via: apache:2.4
   webroot: .
   database: mysql:5.7
@@ -31,12 +31,12 @@ Note that if the above config options are not enough all Lando recipes can be fu
 
 You can set `php` to any version that is available in our [php service](https://docs.lando.dev/plugins/php). However, you should consult the [Symfony requirements](https://symfony.com/doc/current/setup.html) to make sure that version is actually supported by Symfony itself.
 
-Here is the [recipe config](https://docs.lando.dev/landofile/recipes.html#config) to set the Symfony recipe to use `php` version `7.3`
+Here is the [recipe config](https://docs.lando.dev/landofile/recipes.html#config) to set the Symfony recipe to use `php` version `8.3`
 
 ```yaml
 recipe: symfony
 config:
-  php: '7.3'
+  php: '8.3'
 ```
 
 ## Choosing a web server
@@ -48,7 +48,7 @@ By default this recipe will be served by the default version of our [apache](htt
 ```yaml
 recipe: symfony
 config:
-  via: apache
+  via: apache:2.4
 ```
 
 #### With nginx
@@ -56,7 +56,7 @@ config:
 ```yaml
 recipe: symfony
 config:
-  via: nginx
+  via: nginx:1.25
 ```
 
 ## Choosing a database backend
@@ -70,7 +70,7 @@ If you are unsure about how to configure the `database`, we *highly recommend* y
 ```yaml
 recipe: symfony
 config:
-  database: mysql
+  database: mysql:5.7
 ```
 
 #### Using MariaDB
@@ -78,7 +78,7 @@ config:
 ```yaml
 recipe: symfony
 config:
-  database: mariadb
+  database: mariadb:10.11
 ```
 
 #### Using Postgres
@@ -86,15 +86,7 @@ config:
 ```yaml
 recipe: symfony
 config:
-  database: postgres
-```
-
-#### Using a custom version
-
-```yaml
-recipe: symfony
-config:
-  database: postgres:14
+  database: postgres:16
 ```
 
 ## Choosing a caching backend
@@ -110,7 +102,7 @@ If you are unsure about how to configure the `cache` we *highly recommend* you c
 ```yaml
 recipe: symfony
 config:
-  cache: redis
+  cache: redis:7.2
 ```
 
 #### Using Memcached
@@ -118,15 +110,7 @@ config:
 ```yaml
 recipe: symfony
 config:
-  cache: memcached
-```
-
-#### Using a custom version
-
-```yaml
-recipe: symfony
-config:
-  cache: redis:2.8
+  cache: memcached:1.6
 ```
 
 ## Environment File
@@ -172,6 +156,10 @@ DATABASE_URL=mysql://symfony:symfony@database/symfony
 MAILER_URL=null://localhost
 ###< symfony/swiftmailer-bundle ###
 ```
+
+## Symfony CLI
+
+The Symfony CLI is a developer tool to help you build, run, and manage your Symfony applications directly from your terminal. It is included in the `appserver` service and can be run using `lando symfony`.
 
 ## Connecting to your database and/or cache
 
