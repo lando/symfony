@@ -12,11 +12,12 @@ Lando offers a configurable [recipe](https://docs.lando.dev/landofile/recipes.ht
 
 #### Features of this plugin:
 
-* Configurable `php` version from `5.3` all the way to `8.3`
+* Configurable `php` version (e.g., PHP 5.3 to 8.4+ via Lando's PHP service)
 * Configurable `webroot`
 * Configurable web server (`apache` or `nginx`)
 * Configurable database backend (`mariadb`, `mysql`, or `postgres`)
 * Configurable `composer`
 * Configurable caching backend (`redis` or `memcached`)
-* `xdebug`
+* Includes the Symfony CLI, accessible via `lando symfony`
+* `xdebug` support
 

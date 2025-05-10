@@ -3,7 +3,8 @@
 This is the _official_ [Lando](https://lando.dev) plugin for [Symfony](https://symfony.com/). When installed it...
 
 * Allows users to run a `symfony` app
-* Allows users to configure `php` version from `5.3` all the way to `8.1`
+* Includes the Symfony CLI, accessible via `lando symfony`
+* Allows configuration of PHP versions (e.g., PHP 5.3 to 8.4+) via Lando's PHP service
 * Allows users to configure `webroot`
 * Allows users to configure web server to (`apache` or `nginx`)
 * Allows users to configure database backend to (`mariadb`, `mysql`, or `postgres`)
@@ -20,6 +21,10 @@ Add a `symfony` recipe to your Landofile
 ```yaml
 name: symfony-app
 recipe: symfony
+config:
+  php: '8.2'
+  via: apache:2.4
+  database: mysql:5.7
 ```
 
 For more info you should check out the [docs](https://docs.lando.dev/symfony):

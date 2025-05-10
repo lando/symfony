@@ -22,6 +22,9 @@ Run the following commands to validate things are rolling as they should.
 # Should be able to connect to the relevant databases
 lando mysql database -e quit
 
+# Should report symfony requirements are met
+lando symfony check:requirements
+
 # Should be able to import into database by default
 lando db-import mysql-test.sql
 lando mysql symfony -e "show tables;" | grep users
