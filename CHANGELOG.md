@@ -1,5 +1,7 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+## v1.10.0 - [May 12, 2025](https://github.com/lando/symfony/releases/tag/v1.10.0)
+
 * Added Symfony CLI to the `appserver` service, accessible via `lando symfony`.
 * Updated to [@lando/php@1.7.1](https://github.com/lando/php/releases/tag/v1.7.1).
 
