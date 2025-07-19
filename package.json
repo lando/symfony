@@ -3,7 +3,7 @@
   "description": "A Lando plugin that provides a tight integration with Symfony.",
   "version": "1.10.0",
   "author": "Mike Pirog @pirog",
-  "license": "GPL-3.0",
+  "license": "MIT",
   "repository": "lando/symfony",
   "bugs": "https://github.com/lando/symfony/issues/new/choose",
   "homepage": "https://github.com/lando/symfony",
