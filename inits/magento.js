@@ -4,5 +4,5 @@
  * Init Lamp
  */
 module.exports = {
-  name: 'symfony',
+  name: 'magento',
 };

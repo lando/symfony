@@ -13,14 +13,14 @@ const getCache = cache => {
   // Return redis
   if (_.includes(cache, 'redis')) {
     return {
-      type: version ? `symfony-redis:${version}` : 'symfony-redis',
+      type: version ? `magento-redis:${version}` : 'magento-redis',
       portforward: true,
       persist: true,
     };
     // Or memcached
   } else if (_.includes(cache, 'memcached')) {
     return {
-      type: version ? `symfony-memcached:${version}` : 'symfony-memcached',
+      type: version ? `magento-memcached:${version}` : 'magento-memcached',
       portforward: true,
     };
   }
@@ -32,8 +32,11 @@ const getCache = cache => {
 const getServices = options => ({
   appserver: {
     build_as_root_internal: [
-      'curl -sS https://get.symfony.com/cli/installer | bash',
-      'mv /root/.symfony5/bin/symfony /usr/local/bin/symfony',
+      'apt-get update -y && apt-get install -y libxslt1-dev cron',
+      'docker-php-ext-install xsl ftp sockets',
+
+      // 'curl -sS https://get.symfony.com/cli/installer | bash',
+      // 'mv /root/.symfony5/bin/symfony /usr/local/bin/symfony',
       ...(options.build_root || []),
     ],
     build_internal: options.build,
@@ -42,23 +45,48 @@ const getServices = options => ({
     config: getServiceConfig(options),
     run_as_root_internal: options.run_root,
     ssl: true,
-    type: `symfony-php:${options.php}`,
+    sslExpose: true,
+    type: `magento-php:${options.php}`,
     via: options.via,
     xdebug: options.xdebug,
     webroot: options.webroot,
-    nginxServiceType: `symfony-${options.via}`,
+    nginxServiceType: `magento-${options.via}`,
+    overrides: {
+      environment: {
+        LANDO_WEBROOT: '/app/pub/.'
+      },
+    }
   },
   database: {
     config: getServiceConfig(options, ['database']),
     authentication: 'mysql_native_password',
-    type: `symfony-${options.database}`,
-    portforward: true,
+    type: `magento-${options.database}`,
+    portforward: 3306,
     creds: {
       user: options.recipe,
       password: options.recipe,
       database: options.recipe,
     },
+    run_as_root: [
+      'mysql -uroot -e "GRANT ALL PRIVILEGES ON *.* TO \'magento\'@\'%\' ;"',
+      ...(options.run_as_root || []),
+    ]
   },
+  searchengine: {
+    config: getServiceConfig(options, ['searchegine']),
+    type: `magento-${options.searchengine}`,
+  },
+  queue: {
+    config: getServiceConfig(options, ['queue']),
+    type: `magento-${options.queue}`,
+  },
+  // mailhog: {
+  //   type: mailhog,
+  //   portforward: true,
+  //   hogfrom: {
+  //     appserver_hyva
+  //   }
+  // }
 });
 
 /*
@@ -142,10 +170,10 @@ const toolingDefaults = {
     service: 'appserver',
     cmd: 'php',
   },
-  'symfony': {
+  'magento': {
     service: 'appserver',
-    cmd: 'symfony',
-    description: 'Runs Symfony CLI commands',
+    cmd: 'bin/magento',
+    description: 'Runs magento CLI commands',
   },
 };
 
@@ -164,13 +192,6 @@ const getDbTooling = database => {
     return {mysql: mysqlCli};
   } else if (db === 'mariadb') {
     return {mariadb: mariadbCli};
-  } else if (db === 'postgres') {
-    return {psql: postgresCli};
-  } else if (db === 'mongo') {
-    return {mongo: {
-      service: 'database',
-      description: 'Drop into the mongo shell',
-    }};
   }
 };
 
@@ -200,20 +221,6 @@ const mysqlCli = {
     },
   },
 };
-// Postgres cli commands
-const postgresCli = {
-  service: ':host',
-  description: 'Drops into a psql shell on a database service',
-  cmd: 'psql -Upostgres',
-  user: 'root',
-  options: {
-    host: {
-      description: 'The database service to use',
-      default: 'database',
-      alias: ['h'],
-    },
-  },
-};
 
 /*
 * Helper to get config defaults
@@ -227,7 +234,7 @@ const getConfigDefaults = options => {
   const dbConfig = getDatabaseType(options);
   const database = _.first(dbConfig.split(':'));
   const version = _.last(dbConfig.split(':')).substring(0, 2);
-  if (database === 'symfony-mysql' || database === 'mysql' || database === 'mariadb') {
+  if (database === 'magento-mysql' || database === 'mysql' || database === 'mariadb') {
     if (version === '8.') {
       options.defaultFiles.database = 'mysql8.cnf';
     } else {
@@ -251,36 +258,38 @@ const getConfigDefaults = options => {
 const getTooling = options => _.merge({}, toolingDefaults, getDbTooling(options.database));
 
 /*
-* Build Symfony
+* Build Magento
 */
 module.exports = {
-  name: 'symfony',
+  name: 'magento',
   parent: '_recipe',
   config: {
     confSrc: path.resolve(__dirname, '..', 'config'),
     config: {},
     composer: {},
-    database: 'mysql:5.7',
+    database: 'mariadb:10.3',
+    searchengine: 'opensearch:2.19.0',
+    queue: 'rabbitmq:3',
     defaultFiles: {
       php: 'php.ini',
     },
-    php: '8.2',
+    php: '8.4',
     services: {appserver: {overrides: {environment: {
-      APP_LOG: 'errorlog',
-    }}}},
-    tooling: {symfony: {service: 'appserver'}},
+            APP_LOG: 'errorlog',
+          }}}},
+    tooling: {magento: {service: 'appserver'}},
     via: 'apache',
-    webroot: '.',
+    webroot: 'app/',
     xdebug: false,
     proxy: {},
   },
-  builder: (parent, config) => class LandoSymfony extends parent {
+  builder: (parent, config) => class LandoMagento extends parent {
     constructor(id, options = {}) {
       options = _.merge({}, config, options);
       // Add in console tooling
       options.tooling.console = {
         service: 'appserver',
-        cmd: `php ${options.webroot}/../bin/console`,
+        cmd: `php ${options.webroot}/bin/magento`,
       };
 
       if (_.has(options, 'cache')) options.services.cache = getCache(options.cache);

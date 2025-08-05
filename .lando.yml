@@ -1,7 +1,7 @@
-name: docs.symfony
+name: docs.magento
 proxy:
   cli:
-    - docs.symfony.lndo.site:5173
+    - docs.magento.lndo.site:5173
 services:
   cli:
     api: 4

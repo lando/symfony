@@ -5,9 +5,9 @@ const LandoMariadb = require('./../node_modules/@lando/mariadb/builders/mariadb.
 
 // Builder
 module.exports = {
-  name: 'symfony-mariadb',
+  name: 'magento-mariadb',
   parent: '_service',
-  builder: parent => class SymfonyMariadb extends LandoMariadb.builder(parent, LandoMariadb.config) {
+  builder: parent => class MagentoMariadb extends LandoMariadb.builder(parent, LandoMariadb.config) {
     constructor(id, options = {}) {
       super(id, options, {services: _.set({}, options.name)});
     }

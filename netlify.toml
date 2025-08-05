@@ -42,9 +42,9 @@
 # We need this so preview environments and the base site look ok on their own
 [[redirects]]
   from = "/"
-  to = "/plugins/symfony"
+  to = "/plugins/magento"
   status = 200
 [[redirects]]
-  from = "/plugins/symfony/*"
+  from = "/plugins/magento/*"
   to = "/:splat"
   status = 200

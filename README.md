@@ -1,6 +1,6 @@
-# Symfony Lando Plugin
+# Magento Lando Plugin
 
-This is the _official_ [Lando](https://lando.dev) plugin for [Symfony](https://symfony.com/). When installed it...
+This is the _NOT official_ [Lando](https://lando.dev) plugin for [Magento](https://developer.adobe.com/commerce/docs/). When installed it...
 
 * Allows users to run a `symfony` app
 * Includes the Symfony CLI, accessible via `lando symfony`
@@ -61,8 +61,5 @@ Made with [contributors-img](https://contrib.rocks).
 
 ## Other Selected Resources
 
-* [LICENSE](/LICENSE)
-* [TERMS OF USE](https://docs.lando.dev/terms)
-* [PRIVACY POLICY](https://docs.lando.dev/privacy)
-* [CODE OF CONDUCT](https://docs.lando.dev/coc)
-
+* [LICENSE](https://github.com/lando/symfony/blob/main/LICENSE.md)
+* [The best professional advice ever](https://www.youtube.com/watch?v=tkBVDh7my9Q)

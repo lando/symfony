@@ -1,13 +1,13 @@
 'use strict';
 
 const _ = require('lodash');
-const LandoMssql = require('./../node_modules/@lando/mssql/builders/mssql.js');
+const LandoRabbitMQ = require('./../custom/rabbitmq/builders/rabbitmq.js');
 
 // Builder
 module.exports = {
-  name: 'symfony-mssql',
+  name: 'magento-rabbitmq',
   parent: '_service',
-  builder: parent => class SymfonyMssql extends LandoMssql.builder(parent, LandoMssql.config) {
+  builder: parent => class MagentoRedis extends LandoRabbitMQ.builder(parent, LandoRabbitMQ.config) {
     constructor(id, options = {}) {
       super(id, options, {services: _.set({}, options.name)});
     }

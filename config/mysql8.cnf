@@ -1,7 +1,7 @@
 #
 # The MySQL database server configuration file for Lando
 #
-# LANDOSYMFONYMYSQL8CNF
+# LANDOMAGENTOMYSQL8CNF
 
 [mysqld]
 #

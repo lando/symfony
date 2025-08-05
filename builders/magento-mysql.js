@@ -5,9 +5,9 @@ const LandoMysql = require('./../node_modules/@lando/mysql/builders/mysql.js');
 
 // Builder
 module.exports = {
-  name: 'symfony-mysql',
+  name: 'magento-mysql',
   parent: '_service',
-  builder: parent => class SymfonyMysql extends LandoMysql.builder(parent, LandoMysql.config) {
+  builder: parent => class MagentoMysql extends LandoMysql.builder(parent, LandoMysql.config) {
     constructor(id, options = {}) {
       super(id, options, {services: _.set({}, options.name)});
     }
