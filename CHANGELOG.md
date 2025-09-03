@@ -1,5 +1,13 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+* Switched images to [bitnamilegacy](https://github.com/bitnami/containers/issues/83267) namespace
+* Updated to [@lando/mariadb@1.7.0](https://github.com/lando/mariadb/releases/tag/v1.7.0)
+* Updated to [@lando/memcached@1.4.2](https://github.com/lando/mongo/releases/tag/v1.4.2)
+* Updated to [@lando/mysql@1.6.0](https://github.com/lando/mysql/releases/tag/v1.6.0)
+* Updated to [@lando/php@1.8.0](https://github.com/lando/php/releases/tag/v1.8.0)
+* Updated to [@lando/postgres@1.5.0](https://github.com/lando/postgres/releases/tag/v1.5.0)
+* Updated default `nginx` version to `1.29`
+
 ## v1.10.0 - [May 12, 2025](https://github.com/lando/symfony/releases/tag/v1.10.0)
 
 * Added Symfony CLI to the `appserver` service, accessible via `lando symfony`.
