@@ -56,7 +56,7 @@ config:
 ```yaml
 recipe: symfony
 config:
-  via: nginx:1.25
+  via: nginx:1.29
 ```
 
 ## Choosing a database backend
