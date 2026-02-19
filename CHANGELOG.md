@@ -1,5 +1,13 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+## v1.12.0 (unreleased)
+
+* Added PHP 8.5 support [#76](https://github.com/lando/symfony/pull/76)
+* Updated to [@lando/php@^1.10.0](https://github.com/lando/php/releases/tag/v1.10.0)
+* Fixed release workflow trigger for draft releases
+* Updated CI actions to latest versions
+* Updated README PHP version range and maintainers list
+
 ## v1.11.0 - [September 3, 2025](https://github.com/lando/symfony/releases/tag/v1.11.0)
 
 * Switched images to [bitnamilegacy](https://github.com/bitnami/containers/issues/83267) namespace
