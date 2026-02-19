@@ -1,5 +1,7 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+## v1.12.0 - [February 19, 2026](https://github.com/lando/symfony/releases/tag/v1.12.0)
+
 ## v1.12.0 (unreleased)
 
 * Updated `@lando/php` to `^1.11.0` for MySQL client auto-detection fix
