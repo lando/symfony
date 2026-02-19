@@ -4,7 +4,7 @@ This is the _official_ [Lando](https://lando.dev) plugin for [Symfony](https://s
 
 * Allows users to run a `symfony` app
 * Includes the Symfony CLI, accessible via `lando symfony`
-* Allows configuration of PHP versions (e.g., PHP 5.3 to 8.4+) via Lando's PHP service
+* Allows configuration of PHP versions (e.g., PHP 5.3 to 8.5+) via Lando's PHP service
 * Allows users to configure `webroot`
 * Allows users to configure web server to (`apache` or `nginx`)
 * Allows users to configure database backend to (`mariadb`, `mysql`, or `postgres`)
@@ -50,6 +50,7 @@ We try to log all changes big and small in both [THE CHANGELOG](https://github.c
 
 * [@pirog](https://github.com/pirog)
 * [@reynoldsalec](https://github.com/reynoldsalec)
+* [@AaronFeledy](https://github.com/AaronFeledy)
 
 ## Contributors
 
