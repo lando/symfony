@@ -2,6 +2,7 @@
 
 ## v1.12.0 (unreleased)
 
+* Updated `@lando/php` to `^1.11.0` for MySQL client auto-detection fix
 * Added PHP 8.5 support [#76](https://github.com/lando/symfony/pull/76)
 * Updated to [@lando/php@^1.10.0](https://github.com/lando/php/releases/tag/v1.10.0)
 * Fixed release workflow trigger for draft releases
