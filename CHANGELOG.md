@@ -1,6 +1,6 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
-* Updated `@lando/php` to `^1.11.1` for MySQL client auto-detection fix
+* Updated to [@lando/php@^1.11.1](https://github.com/lando/php/releases/tag/v1.11.1)
 * Added PHP 8.5 support [#76](https://github.com/lando/symfony/pull/76)
 * Updated to [@lando/php@^1.11.1](https://github.com/lando/php/releases/tag/v1.11.1)
 * Fixed release workflow trigger for draft releases
