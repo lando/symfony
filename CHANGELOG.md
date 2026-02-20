@@ -1,15 +1,12 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
-## v1.12.0 - [February 19, 2026](https://github.com/lando/symfony/releases/tag/v1.12.0)
-
-## v1.12.0 (unreleased)
-
-* Updated `@lando/php` to `^1.11.0` for MySQL client auto-detection fix
+* Updated to [@lando/postgres@1.6.0](https://github.com/lando/postgres/releases/tag/v1.6.0)
+* Updated `actions/add-to-project` to 1.0.2
+* Updated `@lando/php` to `^1.11.1` for MySQL client auto-detection fix
 * Added PHP 8.5 support [#76](https://github.com/lando/symfony/pull/76)
-* Updated to [@lando/php@^1.10.0](https://github.com/lando/php/releases/tag/v1.10.0)
+* Updated to [@lando/php@^1.11.1](https://github.com/lando/php/releases/tag/v1.11.1)
 * Fixed release workflow trigger for draft releases
 * Updated CI actions to latest versions
-* Updated README PHP version range and maintainers list
 
 ## v1.11.0 - [September 3, 2025](https://github.com/lando/symfony/releases/tag/v1.11.0)
 
