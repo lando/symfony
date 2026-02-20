@@ -1,5 +1,6 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+* Updated `actions/add-to-project` to 1.0.2
 * Updated `@lando/php` to `^1.11.1` for MySQL client auto-detection fix
 * Added PHP 8.5 support [#76](https://github.com/lando/symfony/pull/76)
 * Updated to [@lando/php@^1.11.1](https://github.com/lando/php/releases/tag/v1.11.1)
