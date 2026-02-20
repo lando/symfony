@@ -1,14 +1,9 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+* Updated to [@lando/php@^1.11.1](https://github.com/lando/php/releases/tag/v1.11.1) for PHP 8.5 and MySQL client fixes
 * Updated to [@lando/mariadb@1.8.0](https://github.com/lando/mariadb/releases/tag/v1.8.0)
 * Updated to [@lando/argv@1.2.0](https://github.com/lando/argv/releases/tag/v1.2.0)
 * Updated to [@lando/postgres@1.6.0](https://github.com/lando/postgres/releases/tag/v1.6.0)
-* Updated `actions/add-to-project` to 1.0.2
-* Updated `@lando/php` to `^1.11.1` for MySQL client auto-detection fix
-* Added PHP 8.5 support [#76](https://github.com/lando/symfony/pull/76)
-* Updated to [@lando/php@^1.11.1](https://github.com/lando/php/releases/tag/v1.11.1)
-* Fixed release workflow trigger for draft releases
-* Updated CI actions to latest versions
 
 ## v1.11.0 - [September 3, 2025](https://github.com/lando/symfony/releases/tag/v1.11.0)
 
