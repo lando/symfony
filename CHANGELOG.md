@@ -1,5 +1,7 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+* Updated `actions/add-to-project` to 1.0.2
+
 ## v1.12.0 - [February 19, 2026](https://github.com/lando/symfony/releases/tag/v1.12.0)
 
 ## v1.12.0 (unreleased)
