@@ -1,5 +1,6 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+* Updated to [@lando/postgres@1.6.0](https://github.com/lando/postgres/releases/tag/v1.6.0)
 * Updated `actions/add-to-project` to 1.0.2
 * Updated `@lando/php` to `^1.11.1` for MySQL client auto-detection fix
 * Added PHP 8.5 support [#76](https://github.com/lando/symfony/pull/76)
