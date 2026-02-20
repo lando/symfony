@@ -1,5 +1,7 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+## v1.12.1 - [February 20, 2026](https://github.com/lando/symfony/releases/tag/v1.12.1)
+
 * Updated to [@lando/php@^1.11.1](https://github.com/lando/php/releases/tag/v1.11.1) for PHP 8.5 and MySQL client fixes
 * Updated to [@lando/mariadb@1.8.0](https://github.com/lando/mariadb/releases/tag/v1.8.0)
 * Updated to [@lando/argv@1.2.0](https://github.com/lando/argv/releases/tag/v1.2.0)
