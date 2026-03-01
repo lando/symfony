@@ -50,7 +50,6 @@ const getServices = options => ({
   },
   database: {
     config: getServiceConfig(options, ['database']),
-    authentication: 'mysql_native_password',
     type: `symfony-${options.database}`,
     portforward: true,
     creds: {
