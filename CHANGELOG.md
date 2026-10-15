@@ -1,8 +1,8 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
 * Updated to [@lando/php@1.12.0](https://github.com/lando/php/releases/tag/v1.12.0) to enable mod_headers/mod_expires by default and fix xdebug log ownership
-* Fixed MySQL 8.2+ failing to start by replacing the removed `expire_logs_days` setting with `binlog_expire_logs_seconds` [lando/symfony#88](https://github.com/lando/symfony/issues/88)
-* Fixed `mysql:8` loading the MySQL 5.7 config file and failing to start
+* Fixed MySQL 8.2+ startup failure by replacing removed `expire_logs_days` with `binlog_expire_logs_seconds` [#88](https://github.com/lando/symfony/issues/88)
+* Fixed `mysql:8` startup failure by using the MySQL 8 config instead of the 5.7 config
 
 ## v1.12.2 - [March 2, 2026](https://github.com/lando/symfony/releases/tag/v1.12.2)
 
